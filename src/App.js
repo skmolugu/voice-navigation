@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "reactstrap";
 import { getTokenOrRefresh } from "./token_util";
 import "./App.css";
 import { ResultReason } from "microsoft-cognitiveservices-speech-sdk";
@@ -98,7 +97,7 @@ const App = (props) => {
   };
 
   return (
-    <Container className="App app-container">
+    <div className="App">
       <header className="App-header">
         <h2>Flight Search App</h2>
       </header>
@@ -144,7 +143,7 @@ const App = (props) => {
           )}
         </section>
       </section>
-    </Container>
+    </div>
   );
 };
 

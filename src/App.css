@@ -18,18 +18,13 @@
   color: #d44916;
 }
 
-.output-display {
+/* .output-display {
   background-color: #383b4b;
   height: 700px;
-}
+} */
 
 .fas, .fa {
   cursor: pointer;
-}
-
-.background {
-  background-color: #272727;
-  color: #747474;
 }
 
 .App {
