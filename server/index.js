@@ -3,7 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-
+const flightsData = require('./db');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
@@ -32,6 +32,9 @@ console.log(speechKey)
     }
 });
 
+app.get('/api/get-flights-data', async (req, res, next) => {
+    return res.status(200).send(flightsData);
+});
 app.listen(3001, () =>
     console.log('Express server is running on localhost:3001')
 );

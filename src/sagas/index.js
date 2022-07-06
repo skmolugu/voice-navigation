@@ -4,7 +4,7 @@ import { transformFlightDates } from './../lib/utils';
 
 function* fetchFlights() {
   try {
-    const json = yield fetch('https://my-json-server.typicode.com/mneema/mock-db/flights')
+    const json = yield fetch('/api/get-flights-data')
       .then(response => response.json());
     yield put({ type: "GET_FLIGHTS_SUCCESS", json: transformFlightDates(json) });
   } catch (e) {
