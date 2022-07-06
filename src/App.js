@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SearchForm from './container/search-form/search-form';
 import FlightsGrid from './components/flights-grid/flights-grid';
 import { getFlights } from './actions';
+import Voice from './components/Voice';
 
 function App(props) {
   useEffect(() => {
@@ -16,6 +17,7 @@ function App(props) {
       <header className="App-header">
         <h2>Flight Search App</h2>
       </header>
+      <Voice/>
       <section className="Main-container">
         <aside className="Search-section">
           <SearchForm></SearchForm>
