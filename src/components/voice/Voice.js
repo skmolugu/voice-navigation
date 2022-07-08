@@ -1,6 +1,7 @@
 import React from "react";
 import { getTokenOrRefresh } from "../../token_util";
 import { ResultReason } from "microsoft-cognitiveservices-speech-sdk";
+import EventEmitter from "../../EventEmitter";
 import "./Voice.css";
 const speechsdk = require("microsoft-cognitiveservices-speech-sdk");
 
@@ -31,6 +32,8 @@ export default function Voice() {
       }
       micHolder.classList.remove("recording");
       console.log("-----------displayText", displayText);
+      //after response from luis , emit event here EventEmitter.emit('intent_name', {}//payload)
+      EventEmitter.emit('flight_search_page');
     });
   }
 

@@ -33,6 +33,7 @@ console.log(speechKey)
 });
 
 app.get('/api/get-flights-data', async (req, res, next) => {
+    //connect to mongodb
     return res.status(200).send(flightsData);
 });
 app.listen(3001, () =>
