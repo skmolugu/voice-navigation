@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -9,7 +11,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 10vh;
   height: 100px;
   display: flex;
@@ -18,18 +19,46 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  background-color: #f7e2a6;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #4287f5;
+  border-bottom: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px black;
+  margin-bottom: 10px;
 }
 
+.App-header h2, .App-header span{
+  text-align: left;
+  margin-left: 10vh;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  
+  display: inline;
+}
+.App-header h2{
+  text-shadow: 5px 5px 10px #bd9e48;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.App-header span{
+  font-size: 0.5em;
+}
+.App-footer{
+  background-color: black;
+  color: #bd9e48;
+  bottom: 0;
+  padding: 2em;
+}
 .App-link {
   color: #61dafb;
 }
 
 .Main-container {
-  background-color: #f5f5f5;
+  background-color: #f7e2a6;
 }
 
 @media screen and (min-width: 640px){
