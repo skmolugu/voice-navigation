@@ -19,4 +19,20 @@ table tr{
   padding: 10px;
 }
 
+.sort-icon {
+  position: relative
+}
 
+.sort-icon i:last-child{
+  position: absolute;
+  left: 0px;
+  top:3px;
+}
+
+.duration-header{
+  margin-right: 1rem;
+  padding-left: 1rem;
+}
+.price-header{
+  margin-right: 1rem;
+}
