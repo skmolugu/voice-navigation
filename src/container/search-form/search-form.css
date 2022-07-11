@@ -4,3 +4,8 @@
   position: sticky;
   padding-top: 5vh;
 }
+
+.Search-section{
+  margin:1rem;
+  min-width: 300px;
+}

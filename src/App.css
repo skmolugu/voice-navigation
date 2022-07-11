@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Kantumruy Pro', sans-serif;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Kantumruy Pro", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .App-logo {
@@ -14,40 +14,37 @@
   min-height: 10vh;
   height: 100px;
   display: flex;
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  background-color: #f7e2a6;
+  background: transparent;
   font-size: calc(10px + 2vmin);
   color: #4287f5;
-  border-bottom: 2px solid black;
-  border-radius: 10px;
-  box-shadow: 3px 3px 10px black;
-  margin-bottom: 10px;
 }
 
-.App-header h2, .App-header span{
+.App-header h2,
+.App-header span {
   text-align: left;
   margin-left: 10vh;
-  font-family: 'Kantumruy Pro', sans-serif;
-  font-family: 'Roboto', sans-serif;
-  
+  font-family: "Kantumruy Pro", sans-serif;
+  font-family: "Roboto", sans-serif;
+
   display: inline;
 }
-.App-header h2{
+.App-header h2 {
   text-shadow: 5px 5px 10px #bd9e48;
   margin-top: 5px;
   margin-bottom: 3px;
 }
 
-.App-header span{
+.App-header span {
   font-size: 0.5em;
 }
-.App-footer{
+.App-footer {
   background-color: black;
   color: #bd9e48;
   bottom: 0;
@@ -58,31 +55,30 @@
 }
 
 .Main-container {
-  background-color: #f7e2a6;
+  background: transparent;
 }
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 640px) {
   .Main-container {
     display: flex;
-    display: -webkit-box; 
+    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-wrap: wrap;
-  }    
+  }
 }
-
 
 .Search-section {
   flex: 1;
   padding: 0;
 }
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 640px) {
   .Results-section {
     flex: 4;
     display: flex;
-    display: -webkit-box; 
+    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -96,4 +92,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.voice-over {
+  background: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
 }

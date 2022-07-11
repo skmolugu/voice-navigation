@@ -115,6 +115,7 @@ export const SearchForm = (props) => {
           <br />
 
           <Form.Group controlId="formGridOrigin">
+          <Form.Label>Enter Origin</Form.Label>
             <Typeahead
               labelKey="origin"
               options={airports}
@@ -128,6 +129,7 @@ export const SearchForm = (props) => {
           <br />
 
           <Form.Group controlId="formGridDestination">
+          <Form.Label>Enter Destination</Form.Label>
             <Typeahead
               labelKey="destination"
               options={airports}
@@ -170,6 +172,7 @@ export const SearchForm = (props) => {
           )}
 
           <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Select Passenger</Form.Label>
             <Form.Control
               as="select"
               name="numOfPassengers"

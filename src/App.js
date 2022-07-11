@@ -16,10 +16,11 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Flight Booker</h2>
+        <h2>Flight Booking</h2>
         <span>Voice navigated*</span>
       </header>
       <Voice />
+      <div className="voice-over">Searching...Please wait</div>
       <section className="Main-container">
         <aside className="Search-section">
           <SearchForm></SearchForm>

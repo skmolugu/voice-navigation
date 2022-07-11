@@ -1,27 +1,28 @@
 .fa-microphone{
     color: white;
+    cursor: pointer;
     display: inline-block;
     width: 100%;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .bottom-right{
     border: 1px solid #fbfbfb;
     background-color: red;
-    height: 6em;
-    width: 6em;
+    height: 5em;
+    width: 5em;
     padding: 1.5em;
     border-radius: 50%;
     box-shadow: 5px 5px 10px #ccc;
     position: fixed;
     z-index: 10;
-    bottom : 2em;
-    right: 2em;
-    text-align: center;
+    bottom : 1em;
+    left: 50%;
+    right: 50%;
 }
 
 .recording{
-    background-color: skyblue;
+    background-color: green;
 }
 
 .recording i{
