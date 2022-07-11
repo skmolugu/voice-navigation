@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import "./search-form.css";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { findFlights } from "./../../actions";
-
+import EventEmitter from "../../EventEmitter";
 const airports = [
   "Pune (PNQ)",
   "Delhi (DEL)",
@@ -31,7 +31,6 @@ export const SearchForm = (props) => {
   const [status, setFormValid] = useState({ isValid: false });
 
   let invalidFields = {};
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const { flights } = props;
@@ -73,7 +72,22 @@ export const SearchForm = (props) => {
     setFormValid({ isValid: true });
     props.findFlights({ flights, criteria });
   };
+  useEffect(() => {
+    const listener = EventEmitter.addListener("flight_search_page", (data) => {
+      let criteria = {
+        departureDate: "2022-11-01",
+        destination: "Mumbai (BOM)",
+        numOfPassengers: 1,
+        origin: "Pune (PNQ)",
+      };
 
+      let flights = props.flights;
+      props.findFlights({ flights, criteria });
+    });
+    return () => {
+      listener.remove();
+    };
+  }, []);
   return (
     <Card>
       <Card.Body>
@@ -162,8 +176,7 @@ export const SearchForm = (props) => {
               placeholder="Number of Passengers"
               value={noOfPassengers}
               onChange={(e) => setNoOfPassengers(parseInt(e.target.value))}
-              required
-            >
+              required>
               <option>Number of Passengers</option>
               <option>1</option>
               <option>2</option>
