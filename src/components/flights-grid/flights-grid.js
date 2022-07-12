@@ -4,39 +4,73 @@ import "../flight-info/flight-info.css";
 import { FlightSearchInfo } from "./../flight-search-info/flight-search-info";
 import { FlightInfo } from "./../flight-info/flight-info";
 import { MultiFlightInfo } from "./../multi-flight-info/multi-flight-info";
+import { getTimeDifferece } from "../../lib/utils";
 
 const FlightsGrid = (props) => {
   const flights = props.flights || {};
-  const [sortedData, setSortedData] = useState({
-    nonStopFlights: [],
-    multiStopFlights: [],
-  });
+  const [sortedData, setSortedData] = useState([]);
 
   useEffect(() => {
-    setSortedData({
-      nonStopFlights: [...flights.nonStopFlights],
-      multiStopFlights: [...flights.multiStopFlights],
-    });
+    setSortedData([...flights.nonStopFlights, ...flights.multiStopFlights]);
   }, [flights]);
   const flightsCount =
     (flights.nonStopFlights && flights.nonStopFlights.length) +
     (flights.multiStopFlights && flights.multiStopFlights.length);
 
-  const flightSort = (sortCriteria, isSortorderAsc) => {
-    let data = [...flights.nonStopFlights];
-    // data.sort((a, b) => {
-    //   if (isSortorderAsc) {
-    //     return a[sortCriteria] > b[sortCriteria] ? 1 : -1;
-    //   } else {
-    //     return a[sortCriteria] < b[sortCriteria] ? 1 : -1;
-    //   }
-    // });
-    let sortedData_ = [];
-    sortedData_ = { ...sortedData, nonStopFlights: [...data] };
-    setSortedData(sortedData_);
+  const flightSortByPrice = (isSortorderAsc) => {
+    let data = [...flights.nonStopFlights, ...flights.multiStopFlights];
+    let a_price = 0,
+      b_price = 0;
+    data.sort((a, b) => {
+      if (a.hasOwnProperty("id")) {
+        a_price = a.price;
+      } else {
+        a_price = a.cumulativeFlight.totalFare;
+      }
+      if (b.hasOwnProperty("id")) {
+        b_price = b.price;
+      } else {
+        b_price = b.cumulativeFlight.totalFare;
+      }
+      if (isSortorderAsc) {
+        console.log(a_price, b_price);
+        return a_price > b_price ? 1 : -1;
+      } else {
+        return a_price < b_price ? 1 : -1;
+      }
+    });
+    setSortedData(data);
   };
 
-  console.log(flights);
+  const flightSortByDuration = (isSortorderAsc) => {
+    let data = [...flights.nonStopFlights, ...flights.multiStopFlights];
+    let a_time = 0,
+      b_time = 0;
+    data.sort((a, b) => {
+      if (a.hasOwnProperty("id")) {
+        a_time = getTimeDifferece(
+          new Date(`${a.date} ${a.arrivalTime}`) -
+            new Date(`${a.date} ${a.departureTime}`)
+        );
+      } else {
+        a_time = a.cumulativeFlight.totalDuration;
+      }
+      if (b.hasOwnProperty("id")) {
+        b_time = getTimeDifferece(
+          new Date(`${b.date} ${b.arrivalTime}`) -
+            new Date(`${b.date} ${b.departureTime}`)
+        );
+      } else {
+        b_time = b.cumulativeFlight.totalDuration;
+      }
+      if (isSortorderAsc) {
+        return a_time > b_time ? 1 : -1;
+      } else {
+        return a_time < b_time ? 1 : -1;
+      }
+    });
+    setSortedData(data);
+  };
 
   return (
     <div className="flights-info-container">
@@ -69,16 +103,18 @@ const FlightsGrid = (props) => {
                   href="#"
                   onClick={(event) => {
                     event.preventDefault();
-                    flightSort("price", true);
-                  }}>
+                    flightSortByDuration(true);
+                  }}
+                >
                   <i className="fa fa-fw fa-sort-asc"></i>
                 </a>
                 <a
                   href="#"
                   onClick={(event) => {
                     event.preventDefault();
-                    flightSort("price", false);
-                  }}>
+                    flightSortByDuration(false);
+                  }}
+                >
                   <i className="fa fa-fw fa-sort-desc"></i>
                 </a>
               </span>
@@ -91,16 +127,18 @@ const FlightsGrid = (props) => {
                 href="#"
                 onClick={(event) => {
                   event.preventDefault();
-                  flightSort("price", true);
-                }}>
+                  flightSortByPrice(true);
+                }}
+              >
                 <i className="fa fa-fw fa-sort-asc"></i>
               </a>
               <a
                 href="#"
                 onClick={(event) => {
                   event.preventDefault();
-                  flightSort("price", false);
-                }}>
+                  flightSortByPrice(false);
+                }}
+              >
                 <i className="fa fa-fw fa-sort-desc"></i>
               </a>{" "}
             </span>
@@ -108,17 +146,19 @@ const FlightsGrid = (props) => {
           <button
             type="button"
             style={{ visibility: "hidden" }}
-            class="btn btn-primary">
+            class="btn btn-primary"
+          >
             Select
           </button>
         </section>
       </div>
-      {sortedData.nonStopFlights &&
-        sortedData.nonStopFlights.map((flight) => <FlightInfo data={flight} />)}
-      {sortedData.multiStopFlights &&
-        sortedData.multiStopFlights.map((flight) => (
+      {sortedData.map((flight) =>
+        flight.hasOwnProperty("id") ? (
+          <FlightInfo data={flight} />
+        ) : (
           <MultiFlightInfo data={flight} />
-        ))}
+        )
+      )}
     </div>
   );
 };

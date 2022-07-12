@@ -1,5 +1,6 @@
 import flightData from "./../data.json";
 import { transformFlightDates } from "./utils";
+import { getTimeDifferece } from "./utils";
 
 //Using a graph algorithm to recursively explore all the connected nodes and find all connected flight paths
 function paths({ graph = [], from, to, date }, path = []) {
@@ -120,17 +121,27 @@ function filterPaths(paths, date, numOfPassengers) {
         id += i;
       }
 
+      let startTime = path[1].config.departureTime;
+      let endTime = path[layovers].config.arrivalTime;
+      let startDate = path[1].config.date;
+      let endDate = path[layovers].config.date;
+      let totalDuration = getTimeDifferece(
+        new Date(`${endDate} ${endTime}`) -
+          new Date(`${startDate} ${startTime}`)
+      );
+
       transformedPaths.multiStopFlights.push({
         cumulativeFlight: {
           id: id,
           origin: path[0],
           destination: path[layovers].destination,
-          date: path[1].config.date,
-          departureTime: path[1].config.departureTime,
-          arrivalTime: path[layovers].config.arrivalTime,
+          date: startDate,
+          departureTime: startTime,
+          arrivalTime: endTime,
           arrivalTimeStamp: path[layovers].config.arrivalTimeStamp,
           departureTimeStamp: path[1].config.departureTimeStamp,
-          dayChange: path[1].config.date !== path[layovers].config.date,
+          dayChange: startDate !== endDate,
+          totalDuration: totalDuration,
           totalFare: totalFare * (parseInt(numOfPassengers) || 1),
         },
         flights: multiFlights,
