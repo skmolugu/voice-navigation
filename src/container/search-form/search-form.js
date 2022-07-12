@@ -72,22 +72,24 @@ export const SearchForm = (props) => {
     setFormValid({ isValid: true });
     props.findFlights({ flights, criteria });
   };
-  useEffect(() => {
-    const listener = EventEmitter.addListener("flight_search_page", (data) => {
-      let criteria = {
-        departureDate: "2022-11-01",
-        destination: "Mumbai (BOM)",
-        numOfPassengers: 1,
-        origin: "Pune (PNQ)",
-      };
 
-      let flights = props.flights;
-      props.findFlights({ flights, criteria });
-    });
-    return () => {
-      listener.remove();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const listener = EventEmitter.addListener("flight_search_page", (data) => {
+  //     let criteria = {
+  //       departureDate: "2022-11-01",
+  //       destination: "Mumbai (BOM)",
+  //       numOfPassengers: 1,
+  //       origin: "Pune (PNQ)",
+  //     };
+
+  //     let flights = props.flights;
+  //     props.findFlights({ flights, criteria });
+  //   });
+  //   return () => {
+  //     listener.remove();
+  //   };
+  // }, []);
+
   return (
     <Card>
       <Card.Body>
@@ -115,7 +117,7 @@ export const SearchForm = (props) => {
           <br />
 
           <Form.Group controlId="formGridOrigin">
-          <Form.Label>Enter Origin</Form.Label>
+            <Form.Label>Enter Origin</Form.Label>
             <Typeahead
               labelKey="origin"
               options={airports}
@@ -129,7 +131,7 @@ export const SearchForm = (props) => {
           <br />
 
           <Form.Group controlId="formGridDestination">
-          <Form.Label>Enter Destination</Form.Label>
+            <Form.Label>Enter Destination</Form.Label>
             <Typeahead
               labelKey="destination"
               options={airports}
@@ -172,14 +174,15 @@ export const SearchForm = (props) => {
           )}
 
           <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Select Passenger</Form.Label>
+            <Form.Label>Select Passenger</Form.Label>
             <Form.Control
               as="select"
               name="numOfPassengers"
               placeholder="Number of Passengers"
               value={noOfPassengers}
               onChange={(e) => setNoOfPassengers(parseInt(e.target.value))}
-              required>
+              required
+            >
               <option>Number of Passengers</option>
               <option>1</option>
               <option>2</option>

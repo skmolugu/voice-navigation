@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./flight-grid.css";
 import "../flight-info/flight-info.css";
 import { FlightSearchInfo } from "./../flight-search-info/flight-search-info";
@@ -10,27 +10,36 @@ import { DetailLabel } from "../detail-label/detail-label";
 const FlightsGrid = (props) => {
   const flights = props.flights || {};
   const [sortedData, setSortedData] = useState({
-    nonStopFlights: [...flights.nonStopFlights],
-    multiStopFlights: [...flights.multiStopFlights],
+    nonStopFlights: [],
+    multiStopFlights: [],
   });
+
+  useEffect(() => {
+    setSortedData({
+      nonStopFlights: [...flights.nonStopFlights],
+      multiStopFlights: [...flights.multiStopFlights],
+    });
+  }, [flights]);
   const flightsCount =
     (flights.nonStopFlights && flights.nonStopFlights.length) +
     (flights.multiStopFlights && flights.multiStopFlights.length);
 
   const flightSort = (sortCriteria, isSortorderAsc) => {
     let data = [...flights.nonStopFlights];
-    data.sort((a, b) => {
-      if (isSortorderAsc) {
-        return a[sortCriteria] > b[sortCriteria] ? 1 : -1;
-      } else {
-        return a[sortCriteria] < b[sortCriteria] ? 1 : -1;
-      }
-    });
+    // data.sort((a, b) => {
+    //   if (isSortorderAsc) {
+    //     return a[sortCriteria] > b[sortCriteria] ? 1 : -1;
+    //   } else {
+    //     return a[sortCriteria] < b[sortCriteria] ? 1 : -1;
+    //   }
+    // });
     let sortedData_ = [];
     sortedData_ = { ...sortedData, nonStopFlights: [...data] };
     setSortedData(sortedData_);
   };
-  console.log(sortedData);
+
+  console.log(flights);
+
   return (
     <div className="flights-info-container">
       {props.criteria && (

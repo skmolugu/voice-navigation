@@ -131,7 +131,7 @@ function filterPaths(paths, date, numOfPassengers) {
           arrivalTimeStamp: path[layovers].config.arrivalTimeStamp,
           departureTimeStamp: path[1].config.departureTimeStamp,
           dayChange: path[1].config.date !== path[layovers].config.date,
-          price: totalFare * (parseInt(numOfPassengers) || 1),
+          totalFare: totalFare * (parseInt(numOfPassengers) || 1),
         },
         flights: multiFlights,
       });
