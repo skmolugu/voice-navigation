@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { getTokenOrRefresh } from "../../token_util";
 import { ResultReason } from "microsoft-cognitiveservices-speech-sdk";
 import EventEmitter from "../../EventEmitter";
@@ -6,6 +6,7 @@ import "./Voice.css";
 const speechsdk = require("microsoft-cognitiveservices-speech-sdk");
 
 export default function Voice() {
+  const [voice,setVoice] = useState("Voice Searching...")
   async function sttFromMic() {
     const micHolder = document.getElementById("mic-holder");
     micHolder.classList.add("recording");
@@ -28,18 +29,22 @@ export default function Voice() {
         displayText = `RECOGNIZED: Text=${result.text}`;
       } else {
         displayText =
-          "ERROR: Speech was cancelled or could not be recognized. Ensure your microphone is working properly.";
+          "Speech was cancelled or could not be recognized. Ensure your microphone is working properly.";
       }
       micHolder.classList.remove("recording");
       console.log("-----------displayText", displayText);
+      setVoice(displayText)
       //after response from luis , emit event here EventEmitter.emit('intent_name', {}//payload)
-      EventEmitter.emit('flight_search_page');
+      EventEmitter.emit("flight_search_page");
     });
   }
 
   return (
-    <div id="mic-holder" className="bottom-right">
-      <i className="fas fa-microphone fa-lg mr-2" onClick={sttFromMic}></i>
-    </div>
+    <>
+      <div className="voice-over">{voice}</div>
+      <div id="mic-holder" className="bottom-right">
+        <i className="fas fa-microphone fa-lg mr-2" onClick={sttFromMic}></i>
+      </div>
+    </>
   );
 }

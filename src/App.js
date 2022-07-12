@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import SearchForm from "./container/search-form/search-form";
@@ -20,7 +20,6 @@ function App(props) {
         <span>Voice navigated*</span>
       </header>
       <Voice />
-      <div className="voice-over">Searching...Please wait</div>
       <section className="Main-container">
         <aside className="Search-section">
           <SearchForm></SearchForm>
