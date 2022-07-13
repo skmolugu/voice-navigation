@@ -35,15 +35,12 @@ export default function Voice() {
       micHolder.classList.remove("recording");
       setVoice(displayText);
       try {
-        fetch('/api/get-flights-speech', {
-          method: 'POST',
+        fetch('/api/get-flights-speech?text='+text, {
+          method: 'GET',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            text
-          })
+          }
         }
         ).then(response => {
           return response.json();

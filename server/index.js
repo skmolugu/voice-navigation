@@ -13,7 +13,6 @@ app.get('/api/get-speech-token', async (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     const speechKey = process.env.SPEECH_KEY;
     const speechRegion = process.env.SPEECH_REGION;
-console.log(speechKey)
     if (speechKey === 'paste-your-speech-key-here' || speechRegion === 'paste-your-speech-region-here') {
         res.status(400).send('You forgot to add your speech key or region to the .env file.');
     } else {
@@ -38,7 +37,8 @@ app.get('/api/get-flights-data', async (req, res, next) => {
     return res.status(200).send(flightsData);
 });
 
-app.post('/api/get-flights-speech', async(req, res, next) => {
+
+app.get('/api/get-flights-speech', async(req, res, next) => {
     return luis.getLuis(req, res);
   })
 
