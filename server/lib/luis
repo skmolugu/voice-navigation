@@ -1,0 +1,41 @@
+const axios = require('axios');
+const _ = require('lodash');
+
+module.exports = {
+  getLuis: async function (req, res) {
+    const today = new Date();
+    const todayDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  
+    const result = {
+      intent: '',
+      payload: {
+        to: '',
+        from: 'London',
+        people: 1,
+        data: todayDate
+      }
+    }
+    // console.log(req.body);
+
+    // console.log('-----------');
+    // req.body = {
+    //   text : "Book filghts to Hyderabad for 2 adults"
+    // }
+    // console.log('-----------');
+    // const searchText = encodeURI(req.body.text);
+    // console.log(searchText);
+    const url = 'https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/fed49b82-b4e8-435c-915d-20b3e3cb1b3d/slots/staging/predict?verbose=true&show-all-intents=true&log=true&subscription-key=dbcbf52232c244e9a71d25383ed4d1c0&query=book%20flight%20from%20london%20to%20hyderabad%20for%202%20adults%20on%20december%201st';
+
+    const response = await axios.get(url);
+    if(response.status === 200) {
+      const data = response.data;
+      result.intent = _.get(data, 'prediction.topIntent');
+      result.payload.people = _.get(data, 'prediction.entities.number[0]');
+      result.payload.from = _.get(data, 'prediction.entities.Location[0].from[0]');
+      result.payload.to = _.get(data, 'prediction.entities.Location[1].to[0]');
+      result.payload.data = _.get(data, 'prediction.entities.datetimeV2[0].values[0].resolution[1].value');
+
+    }
+    return res.status(200).send(result);
+  }
+}

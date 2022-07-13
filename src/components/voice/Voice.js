@@ -32,10 +32,26 @@ export default function Voice() {
           "Speech was cancelled or could not be recognized. Ensure your microphone is working properly.";
       }
       micHolder.classList.remove("recording");
+      try {
+        fetch('/api/get-flights-speech', { 
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: result.text
+            })
+        }
+        ).then(response => {
+          setVoice(displayText)
+          EventEmitter.emit("flight_search_page");
+        });
+      } catch (e) {
+        console.log('error', e);
+        
+      }
       console.log("-----------displayText", displayText);
-      setVoice(displayText)
       //after response from luis , emit event here EventEmitter.emit('intent_name', {}//payload)
-      EventEmitter.emit("flight_search_page");
     });
   }
 

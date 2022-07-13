@@ -7,6 +7,7 @@ const flightsData = require('./db');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
+const luis = require('./lib/luis');
 
 app.get('/api/get-speech-token', async (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
@@ -36,6 +37,11 @@ app.get('/api/get-flights-data', async (req, res, next) => {
     //connect to mongodb
     return res.status(200).send(flightsData);
 });
+
+app.post('/api/get-flights-speech', async(req, res, next) => {
+    return luis.getLuis(req, res);
+  })
+
 app.listen(3001, () =>
     console.log('Express server is running on localhost:3001')
 );
