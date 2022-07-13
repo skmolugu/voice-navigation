@@ -90,7 +90,7 @@ export const SearchForm = (props) => {
     return () => {
       listener.remove();
     };
-  }, []);
+  }, [props.flights]);
 
   return (
     <Card>

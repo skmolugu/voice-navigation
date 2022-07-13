@@ -6,8 +6,10 @@ import "./Voice.css";
 const speechsdk = require("microsoft-cognitiveservices-speech-sdk");
 
 export default function Voice() {
-  const [voice,setVoice] = useState("Click on Microphone icon to start voice search...")
+  const [voice, setVoice] = useState("Click on Microphone icon to start voice search...")
+  const [loader, setLoader] = useState(false);
   async function sttFromMic() {
+    setLoader(true);
     const micHolder = document.getElementById("mic-holder");
     micHolder.classList.add("recording");
     const tokenObj = await getTokenOrRefresh();
@@ -43,11 +45,13 @@ export default function Voice() {
           }
         }
         ).then(response => {
+          setLoader(false);
           return response.json();
         }).then(data => {
           EventEmitter.emit(data.intent, data.payload);
         });
       } catch (e) {
+        setLoader(false);
         console.log('error', e);
       }
     });
@@ -56,6 +60,9 @@ export default function Voice() {
   return (
     <>
       <div className="voice-over">{voice}</div>
+      {loader &&
+        <img src="/loader.gif" style={{position:'fixed'}} />
+      }
       <div id="mic-holder" className="bottom-right">
         <i className="fas fa-microphone fa-lg mr-2" onClick={sttFromMic}></i>
       </div>
