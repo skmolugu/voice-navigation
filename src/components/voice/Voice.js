@@ -6,7 +6,7 @@ import "./Voice.css";
 const speechsdk = require("microsoft-cognitiveservices-speech-sdk");
 
 export default function Voice() {
-  const [voice,setVoice] = useState("Voice Searching...")
+  const [voice,setVoice] = useState("Click on Microphone icon to start voice search...")
   async function sttFromMic() {
     const micHolder = document.getElementById("mic-holder");
     micHolder.classList.add("recording");
@@ -25,6 +25,7 @@ export default function Voice() {
 
     recognizer.recognizeOnceAsync((result) => {
       let displayText;
+      let text = result.text;
       if (result.reason === ResultReason.RecognizedSpeech) {
         displayText = `RECOGNIZED: Text=${result.text}`;
       } else {
@@ -32,26 +33,26 @@ export default function Voice() {
           "Speech was cancelled or could not be recognized. Ensure your microphone is working properly.";
       }
       micHolder.classList.remove("recording");
+      setVoice(displayText);
       try {
-        fetch('/api/get-flights-speech', { 
+        fetch('/api/get-flights-speech', {
           method: 'POST',
           headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            text: result.text
-            })
+            text
+          })
         }
         ).then(response => {
-          setVoice(displayText)
-          EventEmitter.emit("flight_search_page");
+          return response.json();
+        }).then(data => {
+          EventEmitter.emit(data.intent, data.payload);
         });
       } catch (e) {
         console.log('error', e);
-        
       }
-      console.log("-----------displayText", displayText);
-      //after response from luis , emit event here EventEmitter.emit('intent_name', {}//payload)
     });
   }
 

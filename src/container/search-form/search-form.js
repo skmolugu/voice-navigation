@@ -9,10 +9,12 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 import { findFlights } from "./../../actions";
 import EventEmitter from "../../EventEmitter";
 const airports = [
-  "Pune (PNQ)",
-  "Delhi (DEL)",
-  "Bengaluru (BLR)",
-  "Mumbai (BOM)",
+  "Pune",
+  "Delhi",
+  "Bengaluru",
+  "Mumbai",
+  "hyderabad",
+  "london"
 ];
 
 const isDate = (date) => {
@@ -70,25 +72,25 @@ export const SearchForm = (props) => {
     }
 
     setFormValid({ isValid: true });
+    console.log(criteria)
     props.findFlights({ flights, criteria });
   };
 
-  // useEffect(() => {
-  //   const listener = EventEmitter.addListener("flight_search_page", (data) => {
-  //     let criteria = {
-  //       departureDate: "2022-11-01",
-  //       destination: "Mumbai (BOM)",
-  //       numOfPassengers: 1,
-  //       origin: "Pune (PNQ)",
-  //     };
-
-  //     let flights = props.flights;
-  //     props.findFlights({ flights, criteria });
-  //   });
-  //   return () => {
-  //     listener.remove();
-  //   };
-  // }, []);
+  useEffect(() => {
+    const listener = EventEmitter.addListener("BookFlight", (data) => {
+      let criteria = {
+        departureDate: data.date,
+        destination: data.to,
+        numOfPassengers: data.people,
+        origin: data.from,
+      };
+      let flights = props.flights;
+      props.findFlights({ flights, criteria });
+    });
+    return () => {
+      listener.remove();
+    };
+  }, []);
 
   return (
     <Card>

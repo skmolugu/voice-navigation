@@ -77,8 +77,8 @@ const FlightsGrid = (props) => {
       {props.criteria && (
         <FlightSearchInfo criteria={props.criteria} count={flightsCount || 0} />
       )}
-      <div class="card">
-        <section class="Flight-info ">
+      <div className="card">
+        <section className="Flight-info ">
           <img
             style={{ visibility: "hidden" }}
             src="/static/media/nonstop.4edbe6dd4c40148091d6.png"
@@ -86,16 +86,16 @@ const FlightsGrid = (props) => {
             width="32"
             height="32"
           />
-          <div class="detail-label">
+          <div className="detail-label">
             <h4>Airlines</h4>
           </div>
-          <div class="detail-label">
+          <div className="detail-label">
             <h4>Departure Time</h4>
           </div>
-          <div class="detail-label">
+          <div className="detail-label">
             <h4>Arrival Time</h4>
           </div>
-          <div class="detail-label duration-header">
+          <div className="detail-label duration-header">
             <h4>
               Duration
               <span className="sort-icon">
@@ -146,7 +146,7 @@ const FlightsGrid = (props) => {
           <button
             type="button"
             style={{ visibility: "hidden" }}
-            class="btn btn-primary"
+            className="btn btn-primary"
           >
             Select
           </button>
