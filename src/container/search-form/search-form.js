@@ -9,10 +9,10 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 import { findFlights } from "./../../actions";
 import EventEmitter from "../../EventEmitter";
 const airports = [
-  "Pune",
-  "Delhi",
-  "Bengaluru",
-  "Mumbai",
+  "pune",
+  "delhi",
+  "bengaluru",
+  "mumbai",
   "hyderabad",
   "london"
 ];
@@ -72,7 +72,6 @@ export const SearchForm = (props) => {
     }
 
     setFormValid({ isValid: true });
-    console.log(criteria)
     props.findFlights({ flights, criteria });
   };
 
@@ -85,6 +84,7 @@ export const SearchForm = (props) => {
         origin: data.from,
       };
       let flights = props.flights;
+      console.log(flights)
       props.findFlights({ flights, criteria });
     });
     return () => {
