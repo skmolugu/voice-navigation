@@ -16,34 +16,39 @@ function App(props) {
   const { origin, destination, departureDate, returnDate } =
     props.filters || {};
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Flight Booking</h2>
-        <span>Voice navigated*</span>
-      </header>
-      <Voice />
-      <section className="Main-container">
-        <aside className="Search-section">
-          <SearchForm></SearchForm>
-        </aside>
-        <section className="Results-section">
-          <Switch>
-            <Route path="/results">
-              <SearchResults
-                routes={props.routes}
-                filters={props.filters || {}}
-              />
-            </Route>
-            <Route path="/confirmation">
-              <p>{props.flightDetails}</p>
-            </Route>
-          </Switch>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h2>Flight Booking</h2>
+          <span>Voice navigated*</span>
+        </header>
+        <Voice />
+        <section className="Main-container">
+          <aside className="Search-section">
+            <SearchForm></SearchForm>
+          </aside>
+          <section className="Results-section">
+            <Switch>
+              <Route exact path="/">
+                <p>Home</p>
+              </Route>
+              <Route path="/results">
+                <SearchResults
+                  routes={props.routes}
+                  filters={props.filters || {}}
+                />
+              </Route>
+              <Route path="/confirmation">
+                <p>{props.flightDetails}</p>
+              </Route>
+            </Switch>
+          </section>
         </section>
-      </section>
-      <footer className="App-footer">
-        <p>&copy; Cognizant Hackathon Demo Project</p>
-      </footer>
-    </div>
+        <footer className="App-footer">
+          <p>&copy; Cognizant Hackathon Demo Project</p>
+        </footer>
+      </div>
+    </Router>
   );
 }
 

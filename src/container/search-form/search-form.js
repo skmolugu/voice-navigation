@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -7,7 +7,9 @@ import { connect } from "react-redux";
 import "./search-form.css";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import { findFlights } from "./../../actions";
-import EventEmitter from "../../EventEmitter";
+// import EventEmitter from "../../EventEmitter";
+import { Link } from "react-router-dom";
+
 const airports = [
   "Pune (PNQ)",
   "Delhi (DEL)",
@@ -196,9 +198,11 @@ export const SearchForm = (props) => {
             <ErrorLabel message="Please enter the number of passengers."></ErrorLabel>
           )}
 
-          <Button variant="primary" className="btn-block" type="submit">
-            Search
-          </Button>
+          <Link to="/results">
+            <Button variant="primary" className="btn-block" type="submit">
+              Search
+            </Button>
+          </Link>
         </Form>
       </Card.Body>
     </Card>
