@@ -5,6 +5,7 @@ import { FlightSearchInfo } from "./../flight-search-info/flight-search-info";
 import { FlightInfo } from "./../flight-info/flight-info";
 import { MultiFlightInfo } from "./../multi-flight-info/multi-flight-info";
 import { getTimeDifferece } from "../../lib/utils";
+import EventEmitter from "../../EventEmitter";
 
 const FlightsGrid = (props) => {
   const flights = props.flights || {};
@@ -12,6 +13,16 @@ const FlightsGrid = (props) => {
 
   useEffect(() => {
     setSortedData([...flights.nonStopFlights, ...flights.multiStopFlights]);
+    const listener = EventEmitter.addListener("Sort_Flights", (data) => {
+      if (data.field === "price") {
+        flightSortByPrice(data.sort === "asc" ? true : false);
+      } else {
+        flightSortByDuration(data.sort === "asc" ? true : false);
+     }
+    });
+    return () => {
+      listener.remove();
+    };
   }, [flights]);
   const flightsCount =
     (flights.nonStopFlights && flights.nonStopFlights.length) +

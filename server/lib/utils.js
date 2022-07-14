@@ -26,6 +26,13 @@ module.exports = {
         result.payload.to = _.get(toObj, 'to[0]');
         result.payload.to = result.payload.to.toLocaleLowerCase();
         break;
+      case 'Sort_Flights':
+        result.payload = {};
+        let sortBy = _.get(data, 'prediction.entities.sortBy[0].type[0]', { "asc": ["low"] });
+        let field = _.get(data, 'prediction.entities.sortBy[1].field[0]', { "price": ["fare"] });
+        result.payload.sort = sortBy.hasOwnProperty("asc") ? "asc" : "desc";
+        result.payload.field = field.hasOwnProperty("price") ? "price" : "distance";
+        break;
     }
     return result;
   }

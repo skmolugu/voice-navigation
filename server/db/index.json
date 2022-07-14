@@ -4,10 +4,10 @@
       "arrivalTime": "6:00",
       "date": "2022/11/01",
       "departureTime": "5:00",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-101",
       "name": "Air India",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 3525
     },
     {
@@ -15,10 +15,10 @@
       "arrivalTime": "9:50",
       "date": "2022/11/01",
       "departureTime": "7:20",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "AI-102",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 5635
     },
     {
@@ -26,10 +26,10 @@
       "arrivalTime": "7:10",
       "date": "2022/11/01",
       "departureTime": "6:10",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-103",
       "name": "Air India",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 2537
     },
     {
@@ -37,10 +37,10 @@
       "arrivalTime": "10:20",
       "date": "2022/11/01",
       "departureTime": "8:10",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "AI-104",
       "name": "Air India",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 4681
     },
     {
@@ -48,10 +48,10 @@
       "arrivalTime": "9:15",
       "date": "2022/11/01",
       "departureTime": "8:15",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "SJ-105",
       "name": "SpiceJet",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 3549
     },
     {
@@ -59,10 +59,10 @@
       "arrivalTime": "13:00",
       "date": "2022/11/01",
       "departureTime": "11:00",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "SJ-106",
       "name": "SpiceJet",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 5645
     },
     {
@@ -70,10 +70,10 @@
       "arrivalTime": "10:00",
       "date": "2022/11/01",
       "departureTime": "8:00",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "SJ-107",
       "name": "SpiceJet",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 5000
     },
     {
@@ -81,10 +81,10 @@
       "arrivalTime": "10:30",
       "date": "2022/11/01",
       "departureTime": "8:00",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "TW-108",
       "name": "Air Taiwan",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 4004
     },
     {
@@ -92,10 +92,10 @@
       "arrivalTime": "15:30",
       "date": "2022/11/01",
       "departureTime": "12:00",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "TW-109",
       "name": "Air Taiwan",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 3495
     },
     {
@@ -103,10 +103,10 @@
       "arrivalTime": "11:30",
       "date": "2022/11/01",
       "departureTime": "9:00",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "AI-110",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 4137
     },
     {
@@ -114,10 +114,10 @@
       "arrivalTime": "16:30",
       "date": "2022/11/01",
       "departureTime": "14:00",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "AI-111",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 5217
     },
     {
@@ -125,10 +125,10 @@
       "arrivalTime": "16:30",
       "date": "2022/11/01",
       "departureTime": "14:30",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-112",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 4170
     },
     {
@@ -136,10 +136,10 @@
       "arrivalTime": "22:30",
       "date": "2022/11/01",
       "departureTime": "20:00",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-113",
       "name": "Air India",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 5132
     },
     {
@@ -147,10 +147,10 @@
       "arrivalTime": "22:45",
       "date": "2022/11/01",
       "departureTime": "21:30",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-114",
       "name": "Air India",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 2001
     },
     {
@@ -158,10 +158,10 @@
       "arrivalTime": "22:10",
       "date": "2022/11/01",
       "departureTime": "20:00",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-115",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 5233
     },
     {
@@ -169,10 +169,10 @@
       "arrivalTime": "19:30",
       "date": "2022/11/01",
       "departureTime": "17:20",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "AI-116",
       "name": "Air India",
-      "origin": "Pune",
+      "origin": "pune",
       "price": 6348
     },
     {
@@ -180,10 +180,10 @@
       "arrivalTime": "14:15",
       "date": "2022/11/01",
       "departureTime": "13:15",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-117",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 5117
     },
     {
@@ -191,10 +191,10 @@
       "arrivalTime": "6:00",
       "date": "2022/11/02",
       "departureTime": "5:00",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-119",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 3525
     },
     {
@@ -202,10 +202,10 @@
       "arrivalTime": "9:50",
       "date": "2022/11/02",
       "departureTime": "7:20",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-120",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 5635
     },
     {
@@ -213,10 +213,10 @@
       "arrivalTime": "6:58",
       "date": "2022/11/02",
       "departureTime": "6:10",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-121",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 2537
     },
     {
@@ -224,10 +224,10 @@
       "arrivalTime": "10:20",
       "date": "2022/11/02",
       "departureTime": "8:10",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-131",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 4681
     },
     {
@@ -235,10 +235,10 @@
       "arrivalTime": "9:15",
       "date": "2022/11/02",
       "departureTime": "8:15",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "SJ-115",
       "name": "SpiceJet",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 3549
     },
     {
@@ -246,10 +246,10 @@
       "arrivalTime": "13:00",
       "date": "2022/11/02",
       "departureTime": "11:00",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "SJ-116",
       "name": "SpiceJet",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 5645
     },
     {
@@ -257,10 +257,10 @@
       "arrivalTime": "10:00",
       "date": "2022/11/02",
       "departureTime": "8:00",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "SJ-117",
       "name": "SpiceJet",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 5000
     },
     {
@@ -268,10 +268,10 @@
       "arrivalTime": "10:30",
       "date": "2022/11/02",
       "departureTime": "8:00",
-      "destination": "Bengaluru",
+      "destination": "bengaluru",
       "flightNo": "TW-118",
       "name": "Air Taiwan",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 4004
     },
     {
@@ -279,10 +279,10 @@
       "arrivalTime": "15:30",
       "date": "2022/11/02",
       "departureTime": "12:00",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "TW-119",
       "name": "Air Taiwan",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 3495
     },
     {
@@ -290,10 +290,10 @@
       "arrivalTime": "11:30",
       "date": "2022/11/02",
       "departureTime": "9:00",
-      "destination": "Mumbai",
+      "destination": "mumbai",
       "flightNo": "AI-130",
       "name": "Air India",
-      "origin": "Delhi",
+      "origin": "delhi",
       "price": 4137
     },
     {
@@ -301,10 +301,10 @@
       "arrivalTime": "16:30",
       "date": "2022/11/02",
       "departureTime": "14:00",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "AI-131",
       "name": "Air India",
-      "origin": "Bengaluru",
+      "origin": "bengaluru",
       "price": 5217
     },
     {
@@ -312,10 +312,10 @@
       "arrivalTime": "16:30",
       "date": "2022/11/02",
       "departureTime": "14:30",
-      "destination": "Delhi",
+      "destination": "delhi",
       "flightNo": "AI-132",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 4170
     },
     {
@@ -323,10 +323,10 @@
       "arrivalTime": "22:45",
       "date": "2022/11/02",
       "departureTime": "21:30",
-      "destination": "Pune",
+      "destination": "pune",
       "flightNo": "AI-134",
       "name": "Air India",
-      "origin": "Mumbai",
+      "origin": "mumbai",
       "price": 2001
     },
     {
