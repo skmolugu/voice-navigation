@@ -33,6 +33,10 @@ module.exports = {
         result.payload.sort = sortBy.hasOwnProperty("asc") ? "asc" : "desc";
         result.payload.field = field.hasOwnProperty("price") ? "price" : "distance";
         break;
+      case 'select_flights_book':
+        result.payload = {};
+        result.payload.index = _.get(data, 'prediction.entities.number[0]', 1);
+        break;
     }
     return result;
   }
