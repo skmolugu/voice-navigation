@@ -8,6 +8,7 @@ import { getTimeDifferece } from "./../../lib/utils";
 import multiFlightLogo from "./../../assets/multiflight.png";
 import "./multi-flight-info.css";
 import "./../flight-info/flight-info.css";
+import { Link } from "react-router-dom";
 
 const MultiFlightLogo = (props) => {
   return (
@@ -69,7 +70,9 @@ export const MultiFlightInfo = (props) => {
           subText={"Total Duration"}
         ></DetailLabel>
         <PriceInfo amount={totalFare} />
-        <Button variant="primary">Select</Button>
+        <Link to="/confirmation">
+          <Button variant="primary">Select</Button>
+        </Link>
       </section>
       {showHideLabel === "Hide Details" &&
         flights.map((flight, index) => {

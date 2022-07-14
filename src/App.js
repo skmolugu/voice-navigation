@@ -5,6 +5,8 @@ import SearchForm from "./container/search-form/search-form";
 import FlightsGrid from "./components/flights-grid/flights-grid";
 import { getFlights } from "./actions";
 import Voice from "./components/voice/Voice";
+import SearchResults from "./container/search-results/searchResults";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App(props) {
   useEffect(() => {
@@ -25,22 +27,17 @@ function App(props) {
           <SearchForm></SearchForm>
         </aside>
         <section className="Results-section">
-          {props.routes && props.routes.onwards && (
-            <FlightsGrid
-              flights={props.routes.onwards}
-              criteria={{ origin, destination, date: departureDate }}
-            ></FlightsGrid>
-          )}
-          {props.routes && props.routes.return && (
-            <FlightsGrid
-              flights={props.routes.return}
-              criteria={{
-                origin: destination,
-                destination: origin,
-                date: returnDate,
-              }}
-            ></FlightsGrid>
-          )}
+          <Switch>
+            <Route path="/results">
+              <SearchResults
+                routes={props.routes}
+                filters={props.filters || {}}
+              />
+            </Route>
+            <Route path="/confirmation">
+              <p>{props.flightDetails}</p>
+            </Route>
+          </Switch>
         </section>
       </section>
       <footer className="App-footer">

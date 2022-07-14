@@ -6,6 +6,7 @@ import { PriceInfo } from "./../price-info/price-info";
 import nonStopFlightLogo from "./../../assets/nonstop.png";
 import { getTimeDifferece } from "./../../lib/utils";
 import "./flight-info.css";
+import { Link } from "react-router-dom";
 
 const FlightLogo = (props) => {
   return (
@@ -47,7 +48,11 @@ export const FlightInfo = (props) => {
           subText={isMultiMode ? "" : "Non stop"}
         ></DetailLabel>
         {isMultiMode ? null : <PriceInfo amount={price} />}
-        {isMultiMode ? null : <Button variant="primary">Select</Button>}
+        {isMultiMode ? null : (
+          <Link to="/confirmation">
+            <Button variant="primary">Select</Button>
+          </Link>
+        )}
       </section>
     </Card>
   );
