@@ -38,6 +38,7 @@ export const MultiFlightInfo = (props) => {
     },
     flights,
   } = props.data;
+
   const [showHideLabel, toggleLabel] = useState("Show Details");
   const timeDiff = arrivalTimeStamp - departureTimeStamp;
   return (
@@ -69,7 +70,12 @@ export const MultiFlightInfo = (props) => {
           subText={"Total Duration"}
         ></DetailLabel>
         <PriceInfo amount={totalFare} />
-        <Button variant="primary">Select</Button>
+        <Button
+          variant="primary"
+          onClick={() => props.showBookingConfirmation(props.data)}
+        >
+          Book
+        </Button>
       </section>
       {showHideLabel === "Hide Details" &&
         flights.map((flight, index) => {

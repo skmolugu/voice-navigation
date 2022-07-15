@@ -7,22 +7,22 @@
 }
 
 .bottom-right{
-    border: 1px solid #fbfbfb;
+    border: 1px solid red;
     background-color: red;
     height: 5em;
     width: 5em;
     padding: 1.5em;
     border-radius: 50%;
-    box-shadow: 5px 5px 10px #ccc;
     position: fixed;
     z-index: 10;
-    bottom : 1em;
+    bottom : 7em;
     left: 50%;
     right: 50%;
 }
 
 .recording{
     background-color: green;
+    border: 1px solid green;
 }
 
 .recording i{

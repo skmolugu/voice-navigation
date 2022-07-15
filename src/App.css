@@ -23,7 +23,7 @@
   justify-content: center;
   background: transparent;
   font-size: calc(10px + 2vmin);
-  color: #4287f5;
+  color: #000;
 }
 
 .App-header h2,
@@ -36,12 +36,14 @@
   display: inline;
 }
 .App-header h2 {
-  text-shadow: 5px 5px 10px #bd9e48;
+  text-shadow: 5px 5px 10px #DAD1CC;
   margin-top: 5px;
   margin-bottom: 3px;
 }
 
 .App-header span {
+  text-shadow: 1px 1px 3px #DAD1CC;
+  font-weight: bold;
   font-size: 0.5em;
 }
 .App-footer {

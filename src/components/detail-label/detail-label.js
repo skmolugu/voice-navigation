@@ -1,5 +1,5 @@
-import React from 'react';
-import './detail-label.css';
+import React from "react";
+import "./detail-label.css";
 
 export const DetailLabel = (props) => {
   return (
@@ -7,5 +7,5 @@ export const DetailLabel = (props) => {
       <h4>{props.mainText}</h4>
       <p>{props.subText}</p>
     </div>
-  )
-}
+  );
+};

@@ -47,7 +47,14 @@ export const FlightInfo = (props) => {
           subText={isMultiMode ? "" : "Non stop"}
         ></DetailLabel>
         {isMultiMode ? null : <PriceInfo amount={price} />}
-        {isMultiMode ? null : <Button variant="primary">Select</Button>}
+        {isMultiMode ? null : (
+          <Button
+            variant="primary"
+            onClick={() => props.showBookingConfirmation(props.data)}
+          >
+            Book
+          </Button>
+        )}
       </section>
     </Card>
   );

@@ -18,7 +18,7 @@ const FlightsGrid = (props) => {
         flightSortByPrice(data.sort === "asc" ? true : false);
       } else {
         flightSortByDuration(data.sort === "asc" ? true : false);
-     }
+      }
     });
     return () => {
       listener.remove();
@@ -81,6 +81,52 @@ const FlightsGrid = (props) => {
       }
     });
     setSortedData(data);
+  };
+
+  const showNonstopFlightBookingConfirmation = (details) => {
+    const displayDetails = `Congratulations! Your flight has been booked successfully.
+    
+    ${details.origin.toUpperCase()} - ${details.destination.toUpperCase()}
+    ${details.flightNo} ${details.name}
+
+    Departure Date : ${details.date}
+    Departure Time : ${details.departureTime}
+    Arrival Time   : ${details.arrivalTime}
+
+    Flight Fare    : ${details.price}
+    Taxes          : ${(details.price * 0.08).toFixed(2)}
+    Convenience Fee: 350
+    -------------------------
+    Total Fare     : ${(details.price * 1.08 + 350).toFixed(2)}`;
+    alert(displayDetails);
+  };
+
+  const showMultistopFlightBookingConfirmation = (details) => {
+    let displayDetails = `Congratulations! Your flight has been booked successfully.
+    `;
+    details.flights.forEach(
+      (flight) =>
+        (displayDetails += `${flight.origin.toUpperCase()} - ${flight.destination.toUpperCase()}
+    ${flight.flightNo} ${flight.name}           Date : ${flight.date}
+    Departure Time : ${flight.departureTime}    Arrival Time   : ${
+          flight.arrivalTime
+        }
+    
+    `)
+    );
+    displayDetails += `Total Duration : ${
+      details.cumulativeFlight.totalDuration
+    }
+    Flight Fare    : ${details.cumulativeFlight.totalFare}
+    Taxes          : ${(details.cumulativeFlight.totalFare * 0.08).toFixed(2)}
+    Convenience Fee: 350
+    -------------------------
+    Total Fare     : ${(
+      details.cumulativeFlight.totalFare * 1.08 +
+      350
+    ).toFixed(2)}`;
+
+    alert(displayDetails);
   };
 
   return (
@@ -163,11 +209,19 @@ const FlightsGrid = (props) => {
           </button>
         </section>
       </div>
-      {sortedData.map((flight) =>
+      {sortedData.map((flight, index) =>
         flight.hasOwnProperty("id") ? (
-          <FlightInfo data={flight} />
+          <FlightInfo
+            data={flight}
+            index={index}
+            showBookingConfirmation={showNonstopFlightBookingConfirmation}
+          />
         ) : (
-          <MultiFlightInfo data={flight} />
+          <MultiFlightInfo
+            data={flight}
+            index={index}
+            showBookingConfirmation={showMultistopFlightBookingConfirmation}
+          />
         )
       )}
     </div>
