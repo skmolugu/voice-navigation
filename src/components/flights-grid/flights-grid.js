@@ -21,7 +21,8 @@ const FlightsGrid = (props) => {
       }
     });
     const bookListener = EventEmitter.addListener("select_flights_book", (data) => {
-      let object = sortedData[data.index - 1];
+      let finalData = [...flights.nonStopFlights, ...flights.multiStopFlights];
+      let object = finalData[data.index - 1];
       showNonstopFlightBookingConfirmation(object);
     });
     return () => {

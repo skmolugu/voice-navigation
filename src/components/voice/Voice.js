@@ -51,7 +51,6 @@ export default function Voice() {
             return response.json();
           })
           .then((data) => {
-            console.log(data.payload);
             EventEmitter.emit(data.intent, data.payload);
           });
       } catch (e) {

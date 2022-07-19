@@ -84,7 +84,6 @@ export const SearchForm = (props) => {
         origin: data.from,
       };
       let flights = props.flights;
-      console.log(flights)
       props.findFlights({ flights, criteria });
     });
     return () => {
