@@ -20,8 +20,13 @@ const FlightsGrid = (props) => {
         flightSortByDuration(data.sort === "asc" ? true : false);
       }
     });
+    const bookListener = EventEmitter.addListener("select_flights_book", (data) => {
+      console.log(data)      
+      console.log(sortedData[data.index])
+    });
     return () => {
       listener.remove();
+      bookListener.remove();
     };
   }, [flights]);
   const flightsCount =

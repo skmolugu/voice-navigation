@@ -25,7 +25,8 @@
     "redux-saga": "^1.0.5",
     "run-p": "^0.0.0",
     "universal-cookie": "^4.0.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "words-to-numbers": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const words = require('words-to-numbers');
 
 module.exports = {
   formatReponse: function(data) {
@@ -35,7 +36,9 @@ module.exports = {
         break;
       case 'select_flights_book':
         result.payload = {};
-        result.payload.index = _.get(data, 'prediction.entities.number[0]', 1);
+        result.payload.index = _.get(data, 'prediction.entities.flight_index[0]', 'first');
+        result.payload.index = words.wordsToNumbers(result.payload.index);
+        console.log(result.payload)
         break;
     }
     return result;
